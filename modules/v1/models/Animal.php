@@ -1,5 +1,5 @@
 <?php
-
+//Este é um comentário de teste do Git Kraken
 namespace app\models;
 
 use Yii;
