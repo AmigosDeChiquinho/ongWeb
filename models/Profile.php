@@ -7,20 +7,18 @@ use Yii;
 /**
  * This is the model class for table "Profile".
  *
- * @property integer $User_idUser
+ * @property integer $idProfile
  * @property string $nome
  * @property string $cpf
  * @property string $dataNascimento
  * @property string $celular
  * @property string $telefone
- * @property integer $Endereco_idEndereco
  *
  * @property Animal[] $animals
  * @property Doacao[] $doacaos
+ * @property Endereco $endereco
  * @property Padrinho[] $padrinhos
- * @property Endereco $enderecoIdEndereco
- * @property User $userIdUser
- * @property Recolhimento[] $recolhimentos
+ * @property User $user
  */
 class Profile extends \yii\db\ActiveRecord
 {
@@ -38,13 +36,12 @@ class Profile extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['User_idUser', 'nome', 'cpf', 'dataNascimento', 'celular', 'Endereco_idEndereco'], 'required'],
-            [['User_idUser', 'Endereco_idEndereco'], 'integer'],
+            [['nome', 'cpf', 'dataNascimento', 'celular'], 'required'],
             [['dataNascimento'], 'safe'],
-            [['nome', 'celular', 'telefone'], 'string', 'max' => 45],
-            [['cpf'], 'string', 'max' => 14],
-            [['Endereco_idEndereco'], 'exist', 'skipOnError' => true, 'targetClass' => Endereco::className(), 'targetAttribute' => ['Endereco_idEndereco' => 'idEndereco']],
-            [['User_idUser'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['User_idUser' => 'idUser']],
+            [['nome'], 'string', 'max' => 200],
+            [['cpf', 'celular'], 'string', 'max' => 11],
+            [['telefone'], 'string', 'max' => 10],
+            [['cpf'], 'unique'],
         ];
     }
 
@@ -54,13 +51,12 @@ class Profile extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'User_idUser' => 'User Id User',
+            'idProfile' => 'Id Profile',
             'nome' => 'Nome',
             'cpf' => 'Cpf',
             'dataNascimento' => 'Data Nascimento',
             'celular' => 'Celular',
             'telefone' => 'Telefone',
-            'Endereco_idEndereco' => 'Endereco Id Endereco',
         ];
     }
 
@@ -69,7 +65,7 @@ class Profile extends \yii\db\ActiveRecord
      */
     public function getAnimals()
     {
-        return $this->hasMany(Animal::className(), ['Profile_User_idUser' => 'User_idUser']);
+        return $this->hasMany(Animal::className(), ['Profile_idProfile' => 'idProfile']);
     }
 
     /**
@@ -77,7 +73,15 @@ class Profile extends \yii\db\ActiveRecord
      */
     public function getDoacaos()
     {
-        return $this->hasMany(Doacao::className(), ['Profile_User_idUser' => 'User_idUser']);
+        return $this->hasMany(Doacao::className(), ['Profile_idProfile' => 'idProfile']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getEndereco()
+    {
+        return $this->hasOne(Endereco::className(), ['Profile_idProfile' => 'idProfile']);
     }
 
     /**
@@ -85,30 +89,14 @@ class Profile extends \yii\db\ActiveRecord
      */
     public function getPadrinhos()
     {
-        return $this->hasMany(Padrinho::className(), ['Profile_User_idUser' => 'User_idUser']);
+        return $this->hasMany(Padrinho::className(), ['Profile_idProfile' => 'idProfile']);
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getEnderecoIdEndereco()
+    public function getUser()
     {
-        return $this->hasOne(Endereco::className(), ['idEndereco' => 'Endereco_idEndereco']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getUserIdUser()
-    {
-        return $this->hasOne(User::className(), ['idUser' => 'User_idUser']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getRecolhimentos()
-    {
-        return $this->hasMany(Recolhimento::className(), ['Profile_User_idUser' => 'User_idUser']);
+        return $this->hasOne(User::className(), ['Profile_idProfile' => 'idProfile']);
     }
 }

@@ -7,7 +7,7 @@ use yii\rest\ActiveController;
 class AnimaisController extends ActiveController
 {
    
-   public $modelClass = 'app\models\Animal';
+   public $modelClass = 'app\modules\v1\models\Animal';
 /*
    public function actions()
    {
