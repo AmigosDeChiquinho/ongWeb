@@ -3,16 +3,16 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\Animal;
-use app\models\AnimalSearch;
+use app\models\Doacao;
+use app\models\DoacaoSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * AnimaisController implements the CRUD actions for Animal model.
+ * DoacoesController implements the CRUD actions for Doacao model.
  */
-class AnimaisController extends Controller
+class DoacoesController extends Controller
 {
     /**
      * @inheritdoc
@@ -30,12 +30,12 @@ class AnimaisController extends Controller
     }
 
     /**
-     * Lists all Animal models.
+     * Lists all Doacao models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new AnimalSearch();
+        $searchModel = new DoacaoSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,7 +45,7 @@ class AnimaisController extends Controller
     }
 
     /**
-     * Displays a single Animal model.
+     * Displays a single Doacao model.
      * @param integer $id
      * @return mixed
      */
@@ -57,16 +57,16 @@ class AnimaisController extends Controller
     }
 
     /**
-     * Creates a new Animal model.
+     * Creates a new Doacao model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Animal();
+        $model = new Doacao();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->idanimal]);
+            return $this->redirect(['view', 'id' => $model->idDoacao]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -75,7 +75,7 @@ class AnimaisController extends Controller
     }
 
     /**
-     * Updates an existing Animal model.
+     * Updates an existing Doacao model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -85,7 +85,7 @@ class AnimaisController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->idanimal]);
+            return $this->redirect(['view', 'id' => $model->idDoacao]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -94,7 +94,7 @@ class AnimaisController extends Controller
     }
 
     /**
-     * Deletes an existing Animal model.
+     * Deletes an existing Doacao model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -107,15 +107,15 @@ class AnimaisController extends Controller
     }
 
     /**
-     * Finds the Animal model based on its primary key value.
+     * Finds the Doacao model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Animal the loaded model
+     * @return Doacao the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Animal::findOne($id)) !== null) {
+        if (($model = Doacao::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

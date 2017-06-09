@@ -7,5 +7,5 @@ use yii\rest\ActiveController;
 class CaixinhasController extends ActiveController
 {
    
-   public $modelClass = 'app\models\Caixinha';
+   public $modelClass = 'app\modules\v1\models\Caixinha';
 }

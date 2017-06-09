@@ -4,19 +4,19 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\AnimalSearch */
+/* @var $searchModel app\models\DoacaoSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Animals';
+$this->title = 'Doacaos';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="animal-index">
+<div class="doacao-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Animal', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Doacao', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -24,20 +24,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'idanimal',
-            'nome',
-            'data_entrada',
-            'idade',
-            'raca',
-            // 'caracteristicas',
-            // 'cor',
-            // 'sexo',
-            // 'porte',
-            // 'pelagem',
-            // 'brevehistorico',
-            // 'Profile_idProfile',
-            // 'created_at',
-            // 'updated_at',
+            'idDoacao',
+            'valor',
+            'dataDoacao',
+            'Profile_idProfile',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

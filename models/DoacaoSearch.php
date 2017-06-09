@@ -5,12 +5,12 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Animal;
+use app\models\Doacao;
 
 /**
- * AnimalSearch represents the model behind the search form about `app\models\Animal`.
+ * DoacaoSearch represents the model behind the search form about `app\models\Doacao`.
  */
-class AnimalSearch extends Animal
+class DoacaoSearch extends Doacao
 {
     /**
      * @inheritdoc
@@ -18,8 +18,9 @@ class AnimalSearch extends Animal
     public function rules()
     {
         return [
-            [['idanimal', 'idade', 'Profile_idProfile'], 'integer'],
-            [['nome', 'data_entrada', 'raca', 'caracteristicas', 'cor', 'sexo', 'porte', 'pelagem', 'brevehistorico', 'created_at', 'updated_at'], 'safe'],
+            [['idDoacao', 'Profile_idProfile'], 'integer'],
+            [['valor'], 'number'],
+            [['dataDoacao'], 'safe'],
         ];
     }
 
@@ -41,7 +42,7 @@ class AnimalSearch extends Animal
      */
     public function search($params)
     {
-        $query = Animal::find();
+        $query = Doacao::find();
 
         // add conditions that should always apply here
 
@@ -59,22 +60,11 @@ class AnimalSearch extends Animal
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'idanimal' => $this->idanimal,
-            'data_entrada' => $this->data_entrada,
-            'idade' => $this->idade,
+            'idDoacao' => $this->idDoacao,
+            'valor' => $this->valor,
+            'dataDoacao' => $this->dataDoacao,
             'Profile_idProfile' => $this->Profile_idProfile,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
         ]);
-
-        $query->andFilterWhere(['like', 'nome', $this->nome])
-            ->andFilterWhere(['like', 'raca', $this->raca])
-            ->andFilterWhere(['like', 'caracteristicas', $this->caracteristicas])
-            ->andFilterWhere(['like', 'cor', $this->cor])
-            ->andFilterWhere(['like', 'sexo', $this->sexo])
-            ->andFilterWhere(['like', 'porte', $this->porte])
-            ->andFilterWhere(['like', 'pelagem', $this->pelagem])
-            ->andFilterWhere(['like', 'brevehistorico', $this->brevehistorico]);
 
         return $dataProvider;
     }
