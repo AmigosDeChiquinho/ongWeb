@@ -5,18 +5,15 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "caixinha".
+ * This is the model class for table "Caixinha".
  *
  * @property integer $idCaixinha
  * @property string $nomeEstabelecimento
- * @property string $nomeResposavel
- * @property string $telefone
  * @property string $endereco
  * @property string $dataCriacao
  * @property string $dataRetirada
- * @property integer $aprovado
  *
- * @property Saquecaixinha[] $saquecaixinhas
+ * @property SaqueCaixinha[] $saqueCaixinhas
  */
 class Caixinha extends \yii\db\ActiveRecord
 {
@@ -25,7 +22,7 @@ class Caixinha extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'caixinha';
+        return 'Caixinha';
     }
 
     /**
@@ -34,11 +31,9 @@ class Caixinha extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nomeEstabelecimento', 'nomeResposavel', 'telefone', 'endereco', 'dataCriacao'], 'required'],
+            [['nomeEstabelecimento', 'endereco', 'dataCriacao'], 'required'],
             [['dataCriacao', 'dataRetirada'], 'safe'],
-            [['aprovado'], 'integer'],
-            [['nomeEstabelecimento', 'nomeResposavel'], 'string', 'max' => 100],
-            [['telefone'], 'string', 'max' => 45],
+            [['nomeEstabelecimento'], 'string', 'max' => 100],
             [['endereco'], 'string', 'max' => 200],
         ];
     }
@@ -49,22 +44,19 @@ class Caixinha extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'idCaixinha' => Yii::t('app', 'Id Caixinha'),
-            'nomeEstabelecimento' => Yii::t('app', 'Nome Estabelecimento'),
-            'nomeResposavel' => Yii::t('app', 'Nome Resposavel'),
-            'telefone' => Yii::t('app', 'Telefone'),
-            'endereco' => Yii::t('app', 'Endereco'),
-            'dataCriacao' => Yii::t('app', 'Data Criacao'),
-            'dataRetirada' => Yii::t('app', 'Data Retirada'),
-            'aprovado' => Yii::t('app', 'Aprovado'),
+            'idCaixinha' => 'Id Caixinha',
+            'nomeEstabelecimento' => 'Nome Estabelecimento',
+            'endereco' => 'Endereco',
+            'dataCriacao' => 'Data Criacao',
+            'dataRetirada' => 'Data Retirada',
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getSaquecaixinhas()
+    public function getSaqueCaixinhas()
     {
-        return $this->hasMany(Saquecaixinha::className(), ['Caixinha_idCaixinha' => 'idCaixinha']);
+        return $this->hasMany(SaqueCaixinha::className(), ['Caixinha_idCaixinha' => 'idCaixinha']);
     }
 }
