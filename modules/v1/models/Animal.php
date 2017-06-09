@@ -3,6 +3,8 @@
 namespace app\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
+use yii\db\Expression;
 
 /**
  * This is the model class for table "Animal".
@@ -83,4 +85,16 @@ class Animal extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Padrinho::className(), ['Animal_idanimal' => 'idanimal']);
     }
-}
+
+    public function behaviors()
+    {
+    return [
+        [
+            'class' => TimestampBehavior::className(),
+            'createdAtAttribute' => 'created_at',
+            'updatedAtAttribute' => 'updated_at',
+            'value' => new Expression('NOW()'),
+        ],
+    ];
+    }
+ }
