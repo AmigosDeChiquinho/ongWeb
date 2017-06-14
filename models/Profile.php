@@ -5,7 +5,7 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "Profile".
+ * This is the model class for table "profile".
  *
  * @property integer $idProfile
  * @property string $nome
@@ -13,10 +13,11 @@ use Yii;
  * @property string $dataNascimento
  * @property string $celular
  * @property string $telefone
+ * @property string $endereco
  *
  * @property Animal[] $animals
  * @property Doacao[] $doacaos
- * @property Endereco $endereco
+ * @property Endereco $endereco0
  * @property Padrinho[] $padrinhos
  * @property User $user
  */
@@ -27,7 +28,7 @@ class Profile extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'Profile';
+        return 'profile';
     }
 
     /**
@@ -36,12 +37,12 @@ class Profile extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nome', 'cpf', 'dataNascimento', 'celular'], 'required'],
+            [['nome', 'celular', 'telefone', 'endereco'], 'required'],
             [['dataNascimento'], 'safe'],
             [['nome'], 'string', 'max' => 200],
             [['cpf', 'celular'], 'string', 'max' => 11],
             [['telefone'], 'string', 'max' => 10],
-            [['cpf'], 'unique'],
+            [['endereco'], 'string', 'max' => 100],
         ];
     }
 
@@ -57,6 +58,7 @@ class Profile extends \yii\db\ActiveRecord
             'dataNascimento' => 'Data Nascimento',
             'celular' => 'Celular',
             'telefone' => 'Telefone',
+            'endereco' => 'Endereco',
         ];
     }
 
@@ -79,7 +81,7 @@ class Profile extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getEndereco()
+    public function getEndereco0()
     {
         return $this->hasOne(Endereco::className(), ['Profile_idProfile' => 'idProfile']);
     }

@@ -5,7 +5,7 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "Doacao".
+ * This is the model class for table "doacao".
  *
  * @property integer $idDoacao
  * @property double $valor
@@ -21,7 +21,7 @@ class Doacao extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'Doacao';
+        return 'doacao';
     }
 
     /**

@@ -5,7 +5,7 @@ namespace app\modules\v1\models;
 use Yii;
 
 /**
- * This is the model class for table "Animal".
+ * This is the model class for table "animal".
  *
  * @property integer $idanimal
  * @property string $nome
@@ -21,10 +21,11 @@ use Yii;
  * @property integer $Profile_idProfile
  * @property string $created_at
  * @property string $updated_at
+ * @property integer $arquivado
  *
  * @property Profile $profileIdProfile
- * @property Padrinho[] $padrinhos
  * @property Fotos[] $fotos
+ * @property Padrinho[] $padrinhos
  */
 class Animal extends \yii\db\ActiveRecord
 {
@@ -33,7 +34,7 @@ class Animal extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'Animal';
+        return 'animal';
     }
 
     /**
@@ -44,7 +45,7 @@ class Animal extends \yii\db\ActiveRecord
         return [
             [['data_entrada', 'idade', 'raca', 'caracteristicas', 'cor', 'sexo', 'porte', 'pelagem', 'brevehistorico', 'created_at', 'updated_at'], 'required'],
             [['data_entrada', 'created_at', 'updated_at'], 'safe'],
-            [['idade', 'Profile_idProfile'], 'integer'],
+            [['idade', 'Profile_idProfile', 'arquivado'], 'integer'],
             [['porte', 'pelagem'], 'string'],
             [['nome'], 'string', 'max' => 100],
             [['raca', 'cor'], 'string', 'max' => 45],
@@ -75,6 +76,7 @@ class Animal extends \yii\db\ActiveRecord
             'Profile_idProfile' => 'Profile Id Profile',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
+            'arquivado' => 'Arquivado',
         ];
     }
 
@@ -89,16 +91,16 @@ class Animal extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getPadrinhos()
+    public function getFotos()
     {
-        return $this->hasMany(Padrinho::className(), ['Animal_idanimal' => 'idanimal']);
+        return $this->hasMany(Fotos::className(), ['Animal_idanimal' => 'idanimal']);
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getFotos()
+    public function getPadrinhos()
     {
-        return $this->hasMany(Fotos::className(), ['Animal_idanimal' => 'idanimal']);
+        return $this->hasMany(Padrinho::className(), ['Animal_idanimal' => 'idanimal']);
     }
 }

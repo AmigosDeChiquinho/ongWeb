@@ -42,6 +42,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'Profile_idProfile',
             'created_at',
             'updated_at',
+            'arquivado',
         ],
     ]) ?>
 

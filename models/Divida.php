@@ -5,7 +5,7 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "Divida".
+ * This is the model class for table "divida".
  *
  * @property integer $idDivida
  * @property double $valor
@@ -19,7 +19,7 @@ class Divida extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'Divida';
+        return 'divida';
     }
 
     /**

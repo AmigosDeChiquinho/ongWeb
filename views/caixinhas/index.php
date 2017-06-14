@@ -26,9 +26,12 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'idCaixinha',
             'nomeEstabelecimento',
+            'nomeResposavel',
+            'telefone',
             'endereco',
-            'dataCriacao',
-            'dataRetirada',
+            // 'dataCriacao',
+            // 'dataRetirada',
+            // 'aprovado',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

@@ -18,8 +18,8 @@ class CaixinhaSearch extends Caixinha
     public function rules()
     {
         return [
-            [['idCaixinha'], 'integer'],
-            [['nomeEstabelecimento', 'endereco', 'dataCriacao', 'dataRetirada'], 'safe'],
+            [['idCaixinha', 'aprovado'], 'integer'],
+            [['nomeEstabelecimento', 'nomeResposavel', 'telefone', 'endereco', 'dataCriacao', 'dataRetirada'], 'safe'],
         ];
     }
 
@@ -62,9 +62,12 @@ class CaixinhaSearch extends Caixinha
             'idCaixinha' => $this->idCaixinha,
             'dataCriacao' => $this->dataCriacao,
             'dataRetirada' => $this->dataRetirada,
+            'aprovado' => $this->aprovado,
         ]);
 
         $query->andFilterWhere(['like', 'nomeEstabelecimento', $this->nomeEstabelecimento])
+            ->andFilterWhere(['like', 'nomeResposavel', $this->nomeResposavel])
+            ->andFilterWhere(['like', 'telefone', $this->telefone])
             ->andFilterWhere(['like', 'endereco', $this->endereco]);
 
         return $dataProvider;
