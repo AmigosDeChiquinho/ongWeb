@@ -18,7 +18,7 @@ class AnimalSearch extends Animal
     public function rules()
     {
         return [
-            [['idanimal', 'idade', 'Profile_idProfile'], 'integer'],
+            [['idanimal', 'idade', 'Profile_idProfile', 'arquivado'], 'integer'],
             [['nome', 'data_entrada', 'raca', 'caracteristicas', 'cor', 'sexo', 'porte', 'pelagem', 'brevehistorico', 'created_at', 'updated_at'], 'safe'],
         ];
     }
@@ -65,6 +65,7 @@ class AnimalSearch extends Animal
             'Profile_idProfile' => $this->Profile_idProfile,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
+            'arquivado' => $this->arquivado,
         ]);
 
         $query->andFilterWhere(['like', 'nome', $this->nome])

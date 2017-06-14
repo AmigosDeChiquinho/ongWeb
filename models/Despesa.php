@@ -5,7 +5,7 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "Despesa".
+ * This is the model class for table "despesa".
  *
  * @property integer $idDespesa
  * @property string $recorrente
@@ -20,7 +20,7 @@ class Despesa extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'Despesa';
+        return 'despesa';
     }
 
     /**

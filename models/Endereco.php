@@ -5,7 +5,7 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "Endereco".
+ * This is the model class for table "endereco".
  *
  * @property integer $Profile_idProfile
  * @property string $logradouro
@@ -25,7 +25,7 @@ class Endereco extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'Endereco';
+        return 'endereco';
     }
 
     /**

@@ -5,7 +5,7 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "ItemRecolher".
+ * This is the model class for table "itemrecolher".
  *
  * @property integer $idItemRecolher
  * @property integer $quantidade
@@ -14,16 +14,16 @@ use Yii;
  * @property integer $Recolhimento_idRecolhimento
  *
  * @property Recolhimento $recolhimentoIdRecolhimento
- * @property TipoItem $tipoItemIdTipoItem
+ * @property Tipoitem $tipoItemIdTipoItem
  */
-class ItemRecolher extends \yii\db\ActiveRecord
+class Itemrecolher extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'ItemRecolher';
+        return 'itemrecolher';
     }
 
     /**
@@ -36,7 +36,7 @@ class ItemRecolher extends \yii\db\ActiveRecord
             [['quantidade', 'TipoItem_idTipoItem', 'Recolhimento_idRecolhimento'], 'integer'],
             [['unidade'], 'string', 'max' => 45],
             [['Recolhimento_idRecolhimento'], 'exist', 'skipOnError' => true, 'targetClass' => Recolhimento::className(), 'targetAttribute' => ['Recolhimento_idRecolhimento' => 'idRecolhimento']],
-            [['TipoItem_idTipoItem'], 'exist', 'skipOnError' => true, 'targetClass' => TipoItem::className(), 'targetAttribute' => ['TipoItem_idTipoItem' => 'idTipoItem']],
+            [['TipoItem_idTipoItem'], 'exist', 'skipOnError' => true, 'targetClass' => Tipoitem::className(), 'targetAttribute' => ['TipoItem_idTipoItem' => 'idTipoItem']],
         ];
     }
 
@@ -67,6 +67,6 @@ class ItemRecolher extends \yii\db\ActiveRecord
      */
     public function getTipoItemIdTipoItem()
     {
-        return $this->hasOne(TipoItem::className(), ['idTipoItem' => 'TipoItem_idTipoItem']);
+        return $this->hasOne(Tipoitem::className(), ['idTipoItem' => 'TipoItem_idTipoItem']);
     }
 }

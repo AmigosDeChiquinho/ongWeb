@@ -5,7 +5,7 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "User".
+ * This is the model class for table "user".
  *
  * @property integer $Profile_idProfile
  * @property string $login
@@ -21,7 +21,7 @@ class Usuario extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'User';
+        return 'user';
     }
 
     /**

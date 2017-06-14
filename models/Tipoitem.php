@@ -5,21 +5,21 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "TipoItem".
+ * This is the model class for table "tipoitem".
  *
  * @property integer $idTipoItem
  * @property string $nome
  *
- * @property ItemRecolher[] $itemRecolhers
+ * @property Itemrecolher[] $itemrecolhers
  */
-class TipoItem extends \yii\db\ActiveRecord
+class Tipoitem extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'TipoItem';
+        return 'tipoitem';
     }
 
     /**
@@ -47,8 +47,8 @@ class TipoItem extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getItemRecolhers()
+    public function getItemrecolhers()
     {
-        return $this->hasMany(ItemRecolher::className(), ['TipoItem_idTipoItem' => 'idTipoItem']);
+        return $this->hasMany(Itemrecolher::className(), ['TipoItem_idTipoItem' => 'idTipoItem']);
     }
 }

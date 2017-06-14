@@ -5,15 +5,18 @@ namespace app\modules\v1\models;
 use Yii;
 
 /**
- * This is the model class for table "Caixinha".
+ * This is the model class for table "caixinha".
  *
  * @property integer $idCaixinha
  * @property string $nomeEstabelecimento
+ * @property string $nomeResposavel
+ * @property string $telefone
  * @property string $endereco
  * @property string $dataCriacao
  * @property string $dataRetirada
+ * @property integer $aprovado
  *
- * @property SaqueCaixinha[] $saqueCaixinhas
+ * @property Saquecaixinha[] $saquecaixinhas
  */
 class Caixinha extends \yii\db\ActiveRecord
 {
@@ -22,7 +25,7 @@ class Caixinha extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'Caixinha';
+        return 'caixinha';
     }
 
     /**
@@ -31,9 +34,11 @@ class Caixinha extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nomeEstabelecimento', 'endereco', 'dataCriacao'], 'required'],
+            [['nomeEstabelecimento', 'nomeResposavel', 'telefone', 'endereco', 'dataCriacao'], 'required'],
             [['dataCriacao', 'dataRetirada'], 'safe'],
-            [['nomeEstabelecimento'], 'string', 'max' => 100],
+            [['aprovado'], 'integer'],
+            [['nomeEstabelecimento', 'nomeResposavel'], 'string', 'max' => 100],
+            [['telefone'], 'string', 'max' => 45],
             [['endereco'], 'string', 'max' => 200],
         ];
     }
@@ -46,17 +51,20 @@ class Caixinha extends \yii\db\ActiveRecord
         return [
             'idCaixinha' => 'Id Caixinha',
             'nomeEstabelecimento' => 'Nome Estabelecimento',
+            'nomeResposavel' => 'Nome Resposavel',
+            'telefone' => 'Telefone',
             'endereco' => 'Endereco',
             'dataCriacao' => 'Data Criacao',
             'dataRetirada' => 'Data Retirada',
+            'aprovado' => 'Aprovado',
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getSaqueCaixinhas()
+    public function getSaquecaixinhas()
     {
-        return $this->hasMany(SaqueCaixinha::className(), ['Caixinha_idCaixinha' => 'idCaixinha']);
+        return $this->hasMany(Saquecaixinha::className(), ['Caixinha_idCaixinha' => 'idCaixinha']);
     }
 }

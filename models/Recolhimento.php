@@ -5,7 +5,7 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "Recolhimento".
+ * This is the model class for table "recolhimento".
  *
  * @property integer $idRecolhimento
  * @property string $local
@@ -14,7 +14,7 @@ use Yii;
  * @property string $dataRecolhimento
  * @property integer $Profile_User_idUser
  *
- * @property ItemRecolher[] $itemRecolhers
+ * @property Itemrecolher[] $itemrecolhers
  */
 class Recolhimento extends \yii\db\ActiveRecord
 {
@@ -23,7 +23,7 @@ class Recolhimento extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'Recolhimento';
+        return 'recolhimento';
     }
 
     /**
@@ -58,8 +58,8 @@ class Recolhimento extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getItemRecolhers()
+    public function getItemrecolhers()
     {
-        return $this->hasMany(ItemRecolher::className(), ['Recolhimento_idRecolhimento' => 'idRecolhimento']);
+        return $this->hasMany(Itemrecolher::className(), ['Recolhimento_idRecolhimento' => 'idRecolhimento']);
     }
 }
