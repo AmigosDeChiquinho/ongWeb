@@ -34,9 +34,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'Profile_idProfile')->textInput() ?>
 
-    <?= $form->field($model, 'created_at')->textInput() ?>
-
-    <?= $form->field($model, 'updated_at')->textInput() ?>
+  
 
     <?= $form->field($model, 'arquivado')->textInput() ?>
 
