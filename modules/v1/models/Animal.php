@@ -4,6 +4,7 @@ namespace app\modules\v1\models;
 
 use Yii;
 
+
 /**
  * This is the model class for table "animal".
  *
@@ -103,4 +104,6 @@ class Animal extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Padrinho::className(), ['Animal_idanimal' => 'idanimal']);
     }
+
+   
 }

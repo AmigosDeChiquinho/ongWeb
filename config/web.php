@@ -56,7 +56,7 @@ $config = [
                 [
                     'class' => 'yii\rest\UrlRule',
                     'pluralize' => false,
-                    'controller' => 'v1/caixinhas'
+                    'controller' => 'v1/caixas'
                 ],
 
                  [
