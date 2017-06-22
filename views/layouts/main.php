@@ -119,34 +119,55 @@ DashboardAsset::register($this);
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
 
-        <li><a href="<?=Url::toRoute('/site')?>"><i class="fa fa-dashboard"></i> <span>Home</span></a></li>
+        <li><a href="<?=Url::toRoute('/site')?>"><i class="fa fa-home"></i> <span>Home</span></a></li>
 
        <li class="treeview">
           <a href="#">
-            <i class="fa fa-edit"></i> <span>Animais</span>
+            <i class="fa fa-paw"></i> <span>Animais</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
             <li><a href="<?=Url::toRoute('/animais')?>"><i class="fa fa-circle-o"></i> Listar Animais</a></li>
-            <li><a href="<?=Url::toRoute('/animais/create')?>"><i class="fa fa-circle-o"></i> Cadastrar Animais</a></li>
+            
+            <li>
+                <a href="<?=Url::toRoute('/animais/create')?>">
+                    <i class="fa fa-circle-o"></i> <span>Cadastrar</span>
+                    <span class="pull-right-container">
+                    <small class="label pull-right bg-green">Novo</small>
+                    </span>
+                </a>
+            </li>
+
           </ul>
         </li>
 
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-table"></i> <span>Caixas</span>
+            <i class="fa fa-inbox"></i> <span>Caixas</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
             <li><a href="<?=Url::toRoute('/caixinhas')?>"><i class="fa fa-circle-o"></i> Listar Caixas</a></li>
-            <li><a href="<?=Url::toRoute('/caixinhas/create')?>"><i class="fa fa-circle-o"></i> Cadastrar Caixas</a></li>
+
+        <li>
+          <a href="<?=Url::toRoute('/caixinhas/create')?>">
+            <i class="fa fa-circle-o"></i> <span>Cadastrar</span>
+            <span class="pull-right-container">
+              <small class="label pull-right bg-green">Novo</small>
+            </span>
+          </a>
+        </li>
+
           </ul>
         </li>
 
+        <li><a href="#"><i class="fa fa-book"></i> <span>Documentação</span></a></li>
+
+        <!--
         <li class="treeview">
           <a href="#">
             <i class="fa fa-files-o"></i>
@@ -298,7 +319,8 @@ DashboardAsset::register($this);
             <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
           </ul>
         </li>
-        <li><a href="documentation/index.html"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
+
+        -->
         <li class="header">LABELS</li>
         <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
         <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
@@ -310,16 +332,7 @@ DashboardAsset::register($this);
     <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        Dashboard
-        <small>Control panel</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
-      </ol>
-    </section>
+   
 
     <!-- Main content -->
     <section class="content">
