@@ -5,7 +5,7 @@
 $this->title = 'Amigos de Chiquinho';
 ?>
 <div class="site-index">
-
+    <br><br><br><br><br>
     <div class="jumbotron">
         <h1>ONG Amigos de Chiquinho</h1>
 
@@ -13,7 +13,7 @@ $this->title = 'Amigos de Chiquinho';
         <!--<img src="dist/img/amigos.jpg" class="img-rounded" alt="Cinque Terre">-->
         <p><a class="btn btn-lg btn-success" href="https://www.vakinha.com.br/vaquinha/ong-amigos-de-chiquinho">Verificar Vaquinha Online</a></p>
     </div>
-
+<!--
     <div class="body-content">
 
         <div class="row">
@@ -50,4 +50,5 @@ $this->title = 'Amigos de Chiquinho';
         </div>
 
     </div>
+-->
 </div>
