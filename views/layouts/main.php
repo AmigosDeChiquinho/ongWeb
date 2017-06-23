@@ -164,7 +164,8 @@ DashboardAsset::register($this);
 
           </ul>
         </li>
-
+        <li><a href="<?=Url::toRoute('/despesas')?>"><i class="fa fa-line-chart"></i> <span>Despesa</span></a></li>
+        <li><a href="<?=Url::toRoute('/dividas')?>"><i class="fa fa-dollar"></i> <span>Divida</span></a></li>
         <li><a href="#"><i class="fa fa-book"></i> <span>Documentação</span></a></li>
 
         <!--
