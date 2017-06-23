@@ -129,7 +129,7 @@ DashboardAsset::register($this);
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?=Url::toRoute('/animais')?>"><i class="fa fa-circle-o"></i> Listar Animais</a></li>
+            <li><a href="<?=Url::toRoute('/animais/index')?>"><i class="fa fa-circle-o"></i> Listar Animais</a></li>
             
             <li>
                 <a href="<?=Url::toRoute('/animais/create')?>">
@@ -151,7 +151,7 @@ DashboardAsset::register($this);
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?=Url::toRoute('/caixinhas')?>"><i class="fa fa-circle-o"></i> Listar Caixas</a></li>
+            <li><a href="<?=Url::toRoute('/caixinhas/index')?>"><i class="fa fa-circle-o"></i> Listar Caixas</a></li>
 
         <li>
           <a href="<?=Url::toRoute('/caixinhas/create')?>">
@@ -164,8 +164,8 @@ DashboardAsset::register($this);
 
           </ul>
         </li>
-        <li><a href="<?=Url::toRoute('/despesas')?>"><i class="fa fa-line-chart"></i> <span>Despesa</span></a></li>
-        <li><a href="<?=Url::toRoute('/dividas')?>"><i class="fa fa-dollar"></i> <span>Divida</span></a></li>
+        <li><a href="<?=Url::toRoute('/despesas/index')?>"><i class="fa fa-line-chart"></i> <span>Despesa</span></a></li>
+        <li><a href="<?=Url::toRoute('/dividas/index')?>"><i class="fa fa-dollar"></i> <span>Divida</span></a></li>
         <li><a href="#"><i class="fa fa-book"></i> <span>Documentação</span></a></li>
 
         <!--
