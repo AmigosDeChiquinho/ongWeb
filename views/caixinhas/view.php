@@ -30,9 +30,12 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'idCaixinha',
             'nomeEstabelecimento',
+            'nomeResposavel',
+            'telefone',
             'endereco',
             'dataCriacao',
             'dataRetirada',
+            'aprovado',
         ],
     ]) ?>
 

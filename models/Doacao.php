@@ -5,14 +5,14 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "Doacao".
+ * This is the model class for table "doacao".
  *
  * @property integer $idDoacao
  * @property double $valor
  * @property string $dataDoacao
- * @property integer $Profile_User_idUser
+ * @property integer $Profile_idProfile
  *
- * @property Profile $profileUserIdUser
+ * @property Profile $profileIdProfile
  */
 class Doacao extends \yii\db\ActiveRecord
 {
@@ -21,7 +21,7 @@ class Doacao extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'Doacao';
+        return 'doacao';
     }
 
     /**
@@ -30,11 +30,11 @@ class Doacao extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['valor', 'dataDoacao', 'Profile_User_idUser'], 'required'],
+            [['valor', 'dataDoacao', 'Profile_idProfile'], 'required'],
             [['valor'], 'number'],
             [['dataDoacao'], 'safe'],
-            [['Profile_User_idUser'], 'integer'],
-            [['Profile_User_idUser'], 'exist', 'skipOnError' => true, 'targetClass' => Profile::className(), 'targetAttribute' => ['Profile_User_idUser' => 'User_idUser']],
+            [['Profile_idProfile'], 'integer'],
+            [['Profile_idProfile'], 'exist', 'skipOnError' => true, 'targetClass' => Profile::className(), 'targetAttribute' => ['Profile_idProfile' => 'idProfile']],
         ];
     }
 
@@ -47,15 +47,15 @@ class Doacao extends \yii\db\ActiveRecord
             'idDoacao' => 'Id Doacao',
             'valor' => 'Valor',
             'dataDoacao' => 'Data Doacao',
-            'Profile_User_idUser' => 'Profile  User Id User',
+            'Profile_idProfile' => 'Profile Id Profile',
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getProfileUserIdUser()
+    public function getProfileIdProfile()
     {
-        return $this->hasOne(Profile::className(), ['User_idUser' => 'Profile_User_idUser']);
+        return $this->hasOne(Profile::className(), ['idProfile' => 'Profile_idProfile']);
     }
 }

@@ -5,17 +5,17 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "Padrinho".
+ * This is the model class for table "padrinho".
  *
  * @property integer $idPadrinho
  * @property string $dataInicio
  * @property string $dataFim
  * @property double $mensalidade
  * @property integer $Animal_idanimal
- * @property integer $Profile_User_idUser
+ * @property integer $Profile_idProfile
  *
  * @property Animal $animalIdanimal
- * @property Profile $profileUserIdUser
+ * @property Profile $profileIdProfile
  */
 class Padrinho extends \yii\db\ActiveRecord
 {
@@ -24,7 +24,7 @@ class Padrinho extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'Padrinho';
+        return 'padrinho';
     }
 
     /**
@@ -33,12 +33,12 @@ class Padrinho extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['dataInicio', 'mensalidade', 'Animal_idanimal', 'Profile_User_idUser'], 'required'],
+            [['dataInicio', 'mensalidade', 'Animal_idanimal', 'Profile_idProfile'], 'required'],
             [['dataInicio', 'dataFim'], 'safe'],
             [['mensalidade'], 'number'],
-            [['Animal_idanimal', 'Profile_User_idUser'], 'integer'],
+            [['Animal_idanimal', 'Profile_idProfile'], 'integer'],
             [['Animal_idanimal'], 'exist', 'skipOnError' => true, 'targetClass' => Animal::className(), 'targetAttribute' => ['Animal_idanimal' => 'idanimal']],
-            [['Profile_User_idUser'], 'exist', 'skipOnError' => true, 'targetClass' => Profile::className(), 'targetAttribute' => ['Profile_User_idUser' => 'User_idUser']],
+            [['Profile_idProfile'], 'exist', 'skipOnError' => true, 'targetClass' => Profile::className(), 'targetAttribute' => ['Profile_idProfile' => 'idProfile']],
         ];
     }
 
@@ -53,7 +53,7 @@ class Padrinho extends \yii\db\ActiveRecord
             'dataFim' => 'Data Fim',
             'mensalidade' => 'Mensalidade',
             'Animal_idanimal' => 'Animal Idanimal',
-            'Profile_User_idUser' => 'Profile  User Id User',
+            'Profile_idProfile' => 'Profile Id Profile',
         ];
     }
 
@@ -68,8 +68,8 @@ class Padrinho extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getProfileUserIdUser()
+    public function getProfileIdProfile()
     {
-        return $this->hasOne(Profile::className(), ['User_idUser' => 'Profile_User_idUser']);
+        return $this->hasOne(Profile::className(), ['idProfile' => 'Profile_idProfile']);
     }
 }

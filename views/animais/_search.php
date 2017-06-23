@@ -19,21 +19,31 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'nome') ?>
 
+    <?= $form->field($model, 'data_entrada') ?>
+
     <?= $form->field($model, 'idade') ?>
 
     <?= $form->field($model, 'raca') ?>
 
-    <?= $form->field($model, 'caracteristicas') ?>
+    <?php // echo $form->field($model, 'caracteristicas') ?>
 
     <?php // echo $form->field($model, 'cor') ?>
 
     <?php // echo $form->field($model, 'sexo') ?>
 
+    <?php // echo $form->field($model, 'porte') ?>
+
     <?php // echo $form->field($model, 'pelagem') ?>
 
     <?php // echo $form->field($model, 'brevehistorico') ?>
 
-    <?php // echo $form->field($model, 'Profile_User_idUser') ?>
+    <?php // echo $form->field($model, 'Profile_idProfile') ?>
+
+    <?php // echo $form->field($model, 'created_at') ?>
+
+    <?php // echo $form->field($model, 'updated_at') ?>
+
+    <?php // echo $form->field($model, 'arquivado') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

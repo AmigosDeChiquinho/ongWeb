@@ -46,14 +46,13 @@ class AnimaisController extends Controller
 
     /**
      * Displays a single Animal model.
-     * @param integer $idanimal
-     * @param integer $Profile_User_idUser
+     * @param integer $id
      * @return mixed
      */
-    public function actionView($idanimal, $Profile_User_idUser)
+    public function actionView($id)
     {
         return $this->render('view', [
-            'model' => $this->findModel($idanimal, $Profile_User_idUser),
+            'model' => $this->findModel($id),
         ]);
     }
 
@@ -67,7 +66,7 @@ class AnimaisController extends Controller
         $model = new Animal();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'idanimal' => $model->idanimal, 'Profile_User_idUser' => $model->Profile_User_idUser]);
+            return $this->redirect(['view', 'id' => $model->idanimal]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -78,16 +77,15 @@ class AnimaisController extends Controller
     /**
      * Updates an existing Animal model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $idanimal
-     * @param integer $Profile_User_idUser
+     * @param integer $id
      * @return mixed
      */
-    public function actionUpdate($idanimal, $Profile_User_idUser)
+    public function actionUpdate($id)
     {
-        $model = $this->findModel($idanimal, $Profile_User_idUser);
+        $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'idanimal' => $model->idanimal, 'Profile_User_idUser' => $model->Profile_User_idUser]);
+            return $this->redirect(['view', 'id' => $model->idanimal]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -98,13 +96,12 @@ class AnimaisController extends Controller
     /**
      * Deletes an existing Animal model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $idanimal
-     * @param integer $Profile_User_idUser
+     * @param integer $id
      * @return mixed
      */
-    public function actionDelete($idanimal, $Profile_User_idUser)
+    public function actionDelete($id)
     {
-        $this->findModel($idanimal, $Profile_User_idUser)->delete();
+        $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
     }
@@ -112,14 +109,13 @@ class AnimaisController extends Controller
     /**
      * Finds the Animal model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $idanimal
-     * @param integer $Profile_User_idUser
+     * @param integer $id
      * @return Animal the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($idanimal, $Profile_User_idUser)
+    protected function findModel($id)
     {
-        if (($model = Animal::findOne(['idanimal' => $idanimal, 'Profile_User_idUser' => $Profile_User_idUser])) !== null) {
+        if (($model = Animal::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

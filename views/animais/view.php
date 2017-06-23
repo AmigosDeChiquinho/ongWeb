@@ -15,8 +15,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'idanimal' => $model->idanimal, 'Profile_User_idUser' => $model->Profile_User_idUser], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'idanimal' => $model->idanimal, 'Profile_User_idUser' => $model->Profile_User_idUser], [
+        <?= Html::a('Update', ['update', 'id' => $model->idanimal], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Delete', ['delete', 'id' => $model->idanimal], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
@@ -30,14 +30,19 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'idanimal',
             'nome',
+            'data_entrada',
             'idade',
             'raca',
             'caracteristicas',
             'cor',
             'sexo',
+            'porte',
             'pelagem',
             'brevehistorico',
-            'Profile_User_idUser',
+            'Profile_idProfile',
+            'created_at',
+            'updated_at',
+            'arquivado',
         ],
     ]) ?>
 

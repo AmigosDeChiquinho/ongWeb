@@ -18,8 +18,8 @@ class AnimalSearch extends Animal
     public function rules()
     {
         return [
-            [['idanimal', 'idade', 'Profile_User_idUser'], 'integer'],
-            [['nome', 'raca', 'caracteristicas', 'cor', 'sexo', 'pelagem', 'brevehistorico'], 'safe'],
+            [['idanimal', 'idade', 'Profile_idProfile', 'arquivado'], 'integer'],
+            [['nome', 'data_entrada', 'raca', 'caracteristicas', 'cor', 'sexo', 'porte', 'pelagem', 'brevehistorico', 'created_at', 'updated_at'], 'safe'],
         ];
     }
 
@@ -60,8 +60,12 @@ class AnimalSearch extends Animal
         // grid filtering conditions
         $query->andFilterWhere([
             'idanimal' => $this->idanimal,
+            'data_entrada' => $this->data_entrada,
             'idade' => $this->idade,
-            'Profile_User_idUser' => $this->Profile_User_idUser,
+            'Profile_idProfile' => $this->Profile_idProfile,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+            'arquivado' => $this->arquivado,
         ]);
 
         $query->andFilterWhere(['like', 'nome', $this->nome])
@@ -69,6 +73,7 @@ class AnimalSearch extends Animal
             ->andFilterWhere(['like', 'caracteristicas', $this->caracteristicas])
             ->andFilterWhere(['like', 'cor', $this->cor])
             ->andFilterWhere(['like', 'sexo', $this->sexo])
+            ->andFilterWhere(['like', 'porte', $this->porte])
             ->andFilterWhere(['like', 'pelagem', $this->pelagem])
             ->andFilterWhere(['like', 'brevehistorico', $this->brevehistorico]);
 

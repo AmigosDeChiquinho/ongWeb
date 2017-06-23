@@ -14,6 +14,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'nome')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'data_entrada')->textInput() ?>
+
     <?= $form->field($model, 'idade')->textInput() ?>
 
     <?= $form->field($model, 'raca')->textInput(['maxlength' => true]) ?>
@@ -24,11 +26,17 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'sexo')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'pelagem')->dropDownList([ 'Pequeno' => 'Pequeno', 'Médio' => 'Médio', 'Grande' => 'Grande', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'porte')->dropDownList([ 'Pequeno' => 'Pequeno', 'Médio' => 'Médio', 'Grande' => 'Grande', ], ['prompt' => '']) ?>
+
+    <?= $form->field($model, 'pelagem')->dropDownList([ 'Curto' => 'Curto', 'Médio' => 'Médio', 'Grande' => 'Grande', ], ['prompt' => '']) ?>
 
     <?= $form->field($model, 'brevehistorico')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'Profile_User_idUser')->textInput() ?>
+    <?= $form->field($model, 'Profile_idProfile')->textInput() ?>
+
+  
+
+    <?= $form->field($model, 'arquivado')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
