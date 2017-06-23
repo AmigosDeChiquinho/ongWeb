@@ -24,14 +24,14 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'idanimal',
+            //'idanimal',
             'nome',
-            'data_entrada',
+            //'data_entrada',
             'idade',
             'raca',
             // 'caracteristicas',
             // 'cor',
-            // 'sexo',
+             'sexo',
             // 'porte',
             // 'pelagem',
             // 'brevehistorico',

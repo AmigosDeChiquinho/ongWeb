@@ -2,18 +2,18 @@
 
 /* @var $this yii\web\View */
 
-$this->title = 'My Yii Application';
+$this->title = 'Amigos de Chiquinho';
 ?>
 <div class="site-index">
-
+    <br><br><br><br><br>
     <div class="jumbotron">
-        <h1>Congratulations!</h1>
+        <h1>ONG Amigos de Chiquinho</h1>
 
-        <p class="lead">You have successfully created your Yii-powered application.</p>
-
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
+        <p class="lead"> “Não há crueldade pior que pensar e acreditar que os animais existem para servir ao Homem.”</p>
+        <!--<img src="dist/img/amigos.jpg" class="img-rounded" alt="Cinque Terre">-->
+        <p><a class="btn btn-lg btn-success" href="https://www.vakinha.com.br/vaquinha/ong-amigos-de-chiquinho">Verificar Vaquinha Online</a></p>
     </div>
-
+<!--
     <div class="body-content">
 
         <div class="row">
@@ -50,4 +50,5 @@ $this->title = 'My Yii Application';
         </div>
 
     </div>
+-->
 </div>
