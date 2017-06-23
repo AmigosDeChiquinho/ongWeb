@@ -4,6 +4,7 @@ namespace app\models;
 
 use Yii;
 use yii\behaviors\TimestampBehavior;
+use yii\db\Expression;
 
 /**
  * This is the model class for table "animal".
@@ -113,11 +114,17 @@ class Animal extends \yii\db\ActiveRecord
         return $this->hasMany(Animal::className(), ['Profile_idProfile' => null,'arquivado'=>0]);
     }
 
-
     public function behaviors()
+    
     {
-        return [
-        TimestampBehavior::className(),
-         ];
-    }
+    return [
+        [
+            'class' => TimestampBehavior::className(),
+            'createdAtAttribute' => 'created_at',
+            'updatedAtAttribute' => 'updated_at',
+            'value' => new Expression('NOW()'),
+        ],
+    ];
+}
+
 }
