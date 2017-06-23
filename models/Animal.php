@@ -3,6 +3,8 @@
 namespace app\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
+use yii\db\Expression;
 
 /**
  * This is the model class for table "animal".
@@ -43,8 +45,8 @@ class Animal extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['data_entrada', 'idade', 'raca', 'caracteristicas', 'cor', 'sexo', 'porte', 'pelagem', 'brevehistorico', 'created_at', 'updated_at'], 'required'],
-            [['data_entrada', 'created_at', 'updated_at'], 'safe'],
+            [['data_entrada', 'idade', 'raca', 'caracteristicas', 'cor', 'sexo', 'porte', 'pelagem', 'brevehistorico'], 'required'],
+            [['data_entrada'], 'safe'],
             [['idade', 'Profile_idProfile', 'arquivado'], 'integer'],
             [['porte', 'pelagem'], 'string'],
             [['nome'], 'string', 'max' => 100],
@@ -103,4 +105,26 @@ class Animal extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Padrinho::className(), ['Animal_idanimal' => 'idanimal']);
     }
+
+     /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getDisponiveis()
+    {
+        return $this->hasMany(Animal::className(), ['Profile_idProfile' => null,'arquivado'=>0]);
+    }
+
+    public function behaviors()
+    
+    {
+    return [
+        [
+            'class' => TimestampBehavior::className(),
+            'createdAtAttribute' => 'created_at',
+            'updatedAtAttribute' => 'updated_at',
+            'value' => new Expression('NOW()'),
+        ],
+    ];
+}
+
 }
