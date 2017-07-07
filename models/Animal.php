@@ -106,12 +106,9 @@ class Animal extends \yii\db\ActiveRecord
         return $this->hasMany(Padrinho::className(), ['Animal_idanimal' => 'idanimal']);
     }
 
-     /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getDisponiveis()
+    public function formName()
     {
-        return $this->hasMany(Animal::className(), ['Profile_idProfile' => null,'arquivado'=>0]);
+        return '';
     }
 
     public function behaviors()

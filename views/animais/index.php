@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\AnimalSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Animals';
+$this->title = 'Animais';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="animal-index">
@@ -16,11 +16,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Animal', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app', 'Create Animal'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+        //'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
@@ -39,6 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'created_at',
             // 'updated_at',
             // 'arquivado',
+            
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
