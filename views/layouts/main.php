@@ -346,11 +346,11 @@ DashboardAsset::register($this);
         </li>
 
         -->
-        <li class="header">INFORMAÇÕES</li>
+       <!-- <li class="header">INFORMAÇÕES</li>
         <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Desenvolvedores</span></a></li>
         <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>IFRN</span></a></li>
         <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Sobre</span></a></li>
-      </ul>
+      </ul>-->
     </section>
     <!-- /.sidebar -->
   </aside>
