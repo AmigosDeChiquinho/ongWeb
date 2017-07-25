@@ -1,13 +1,10 @@
 <?php
-
 /* @var $this \yii\web\View */
 /* @var $content string */
-
 use app\assets\DashboardAsset;
 use yii\helpers\Html;
 use yii\widgets\Breadcrumbs;
 use yii\helpers\Url;
-
 DashboardAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
@@ -331,7 +328,6 @@ DashboardAsset::register($this);
             <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
           </ul>
         </li>
-
         -->
        <!-- <li class="header">INFORMAÇÕES</li>
         <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Desenvolvedores</span></a></li>
