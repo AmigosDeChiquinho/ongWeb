@@ -4,10 +4,10 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model app\Models\Animal */
+/* @var $model app\models\Animal */
 
 $this->title = $model->idanimal;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Animals'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Animals', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="animal-view">
@@ -15,11 +15,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Update'), ['update', 'id' => $model->idanimal], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a(Yii::t('app', 'Delete'), ['delete', 'id' => $model->idanimal], [
+        <?= Html::a('Update', ['update', 'id' => $model->idanimal], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Delete', ['delete', 'id' => $model->idanimal], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
+                'confirm' => 'Are you sure you want to delete this item?',
                 'method' => 'post',
             ],
         ]) ?>
@@ -30,18 +30,19 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'idanimal',
             'nome',
-            'dataEntrada',
+            'data_entrada',
             'idade',
+            'raca',
             'caracteristicas',
+            'cor',
             'sexo',
             'porte',
             'pelagem',
-            'breveHistorico',
+            'brevehistorico',
             'Profile_idProfile',
             'created_at',
             'updated_at',
             'arquivado',
-            'especie',
         ],
     ]) ?>
 

@@ -19,11 +19,15 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'nome') ?>
 
-    <?= $form->field($model, 'dataEntrada') ?>
+    <?= $form->field($model, 'data_entrada') ?>
 
     <?= $form->field($model, 'idade') ?>
 
-    <?= $form->field($model, 'caracteristicas') ?>
+    <?= $form->field($model, 'raca') ?>
+
+    <?php // echo $form->field($model, 'caracteristicas') ?>
+
+    <?php // echo $form->field($model, 'cor') ?>
 
     <?php // echo $form->field($model, 'sexo') ?>
 
@@ -31,7 +35,7 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'pelagem') ?>
 
-    <?php // echo $form->field($model, 'breveHistorico') ?>
+    <?php // echo $form->field($model, 'brevehistorico') ?>
 
     <?php // echo $form->field($model, 'Profile_idProfile') ?>
 
@@ -41,11 +45,9 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'arquivado') ?>
 
-    <?php // echo $form->field($model, 'especie') ?>
-
     <div class="form-group">
-        <?= Html::submitButton(Yii::t('app', 'Search'), ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton(Yii::t('app', 'Reset'), ['class' => 'btn btn-default']) ?>
+        <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
+        <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
