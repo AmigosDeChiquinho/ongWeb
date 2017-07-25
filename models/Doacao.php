@@ -11,9 +11,8 @@ use Yii;
  * @property double $valor
  * @property string $dataDoacao
  * @property integer $Profile_idProfile
- * @property string $nomeDoador
  *
- * @property Perfil $profileIdProfile
+ * @property Profile $profileIdProfile
  */
 class Doacao extends \yii\db\ActiveRecord
 {
@@ -31,12 +30,11 @@ class Doacao extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['valor', 'dataDoacao'], 'required'],
+            [['valor', 'dataDoacao', 'Profile_idProfile'], 'required'],
             [['valor'], 'number'],
             [['dataDoacao'], 'safe'],
             [['Profile_idProfile'], 'integer'],
-            [['nomeDoador'], 'string', 'max' => 100],
-            [['Profile_idProfile'], 'exist', 'skipOnError' => true, 'targetClass' => Perfil::className(), 'targetAttribute' => ['Profile_idProfile' => 'idProfile']],
+            [['Profile_idProfile'], 'exist', 'skipOnError' => true, 'targetClass' => Profile::className(), 'targetAttribute' => ['Profile_idProfile' => 'idProfile']],
         ];
     }
 
@@ -46,11 +44,10 @@ class Doacao extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'idDoacao' => Yii::t('app', 'Id Doacao'),
-            'valor' => Yii::t('app', 'Valor'),
-            'dataDoacao' => Yii::t('app', 'Data Doacao'),
-            'Profile_idProfile' => Yii::t('app', 'Profile Id Profile'),
-            'nomeDoador' => Yii::t('app', 'Nome Doador'),
+            'idDoacao' => 'Id Doacao',
+            'valor' => 'Valor',
+            'dataDoacao' => 'Data Doacao',
+            'Profile_idProfile' => 'Profile Id Profile',
         ];
     }
 
@@ -59,6 +56,6 @@ class Doacao extends \yii\db\ActiveRecord
      */
     public function getProfileIdProfile()
     {
-        return $this->hasOne(Perfil::className(), ['idProfile' => 'Profile_idProfile']);
+        return $this->hasOne(Profile::className(), ['idProfile' => 'Profile_idProfile']);
     }
 }
