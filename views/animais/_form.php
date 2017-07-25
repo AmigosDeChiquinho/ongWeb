@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Animal */
+/* @var $model app\Models\Animal */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
@@ -14,15 +14,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'nome')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'data_entrada')->textInput() ?>
+    <?= $form->field($model, 'dataEntrada')->textInput() ?>
 
     <?= $form->field($model, 'idade')->textInput() ?>
 
-    <?= $form->field($model, 'raca')->textInput(['maxlength' => true]) ?>
-
     <?= $form->field($model, 'caracteristicas')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'cor')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'sexo')->textInput(['maxlength' => true]) ?>
 
@@ -30,16 +26,20 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'pelagem')->dropDownList([ 'Curto' => 'Curto', 'Médio' => 'Médio', 'Grande' => 'Grande', ], ['prompt' => '']) ?>
 
-    <?= $form->field($model, 'brevehistorico')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'breveHistorico')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'Profile_idProfile')->textInput() ?>
 
-  
+    <?= $form->field($model, 'created_at')->textInput() ?>
+
+    <?= $form->field($model, 'updated_at')->textInput() ?>
 
     <?= $form->field($model, 'arquivado')->textInput() ?>
 
+    <?= $form->field($model, 'especie')->dropDownList([ 'Cachorro' => 'Cachorro', 'Gato' => 'Gato', ], ['prompt' => '']) ?>
+
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

@@ -9,10 +9,11 @@ use Yii;
  *
  * @property integer $idTipoItem
  * @property string $nome
+ * @property string $unidade
  *
- * @property Itemrecolher[] $itemrecolhers
+ * @property Item[] $items
  */
-class Tipoitem extends \yii\db\ActiveRecord
+class TipoItem extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
@@ -28,8 +29,9 @@ class Tipoitem extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nome'], 'required'],
+            [['nome', 'unidade'], 'required'],
             [['nome'], 'string', 'max' => 100],
+            [['unidade'], 'string', 'max' => 45],
         ];
     }
 
@@ -39,16 +41,17 @@ class Tipoitem extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'idTipoItem' => 'Id Tipo Item',
-            'nome' => 'Nome',
+            'idTipoItem' => Yii::t('app', 'Id Tipo Item'),
+            'nome' => Yii::t('app', 'Nome'),
+            'unidade' => Yii::t('app', 'Unidade'),
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getItemrecolhers()
+    public function getItems()
     {
-        return $this->hasMany(Itemrecolher::className(), ['TipoItem_idTipoItem' => 'idTipoItem']);
+        return $this->hasMany(Item::className(), ['tipoitem_idTipoItem' => 'idTipoItem']);
     }
 }

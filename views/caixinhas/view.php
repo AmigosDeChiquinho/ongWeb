@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\Caixinha */
 
-$this->title = $model->idCaixinha;
+$this->title = $model->nomeEstabelecimento;
 $this->params['breadcrumbs'][] = ['label' => 'Caixinhas', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -14,16 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>
-        <?= Html::a('Update', ['update', 'id' => $model->idCaixinha], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->idCaixinha], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
+  
 
     <?= DetailView::widget([
         'model' => $model,
@@ -38,5 +29,16 @@ $this->params['breadcrumbs'][] = $this->title;
             'aprovado',
         ],
     ]) ?>
+
+      <p>
+        <?= Html::a(Yii::t('app', 'Update'), ['update', 'id' => $model->idCaixinha], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a(Yii::t('app', 'Delete'), ['delete', 'id' => $model->idCaixinha], [
+            'class' => 'btn btn-danger',
+            'data' => [
+                'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
+                'method' => 'post',
+            ],
+        ]) ?>
+    </p>
 
 </div>

@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Caixinha */
 
-$this->title = 'Create Caixinha';
+$this->title = Yii::t('app', 'Create {var}',[ 'var'=>Yii::t('app','Caixinha')]);
 $this->params['breadcrumbs'][] = ['label' => 'Caixinhas', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
