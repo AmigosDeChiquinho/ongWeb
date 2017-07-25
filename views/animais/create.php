@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Animal */
 
-$this->title = Yii::t('app', 'Create {var}',[ 'var'=>Yii::t('app','Animal')]);
+$this->title = 'Create Animal';
 $this->params['breadcrumbs'][] = ['label' => 'Animals', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
