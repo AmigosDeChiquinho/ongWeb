@@ -4,10 +4,10 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Animal */
+/* @var $model app\Models\Animal */
 
-$this->title = Yii::t('app', 'Create {var}',[ 'var'=>Yii::t('app','Animal')]);
-$this->params['breadcrumbs'][] = ['label' => 'Animals', 'url' => ['index']];
+$this->title = Yii::t('app', 'Create Animal');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Animals'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="animal-create">

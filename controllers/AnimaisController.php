@@ -3,7 +3,7 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\Animal;
+use app\Models\Animal;
 use app\models\AnimalSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
