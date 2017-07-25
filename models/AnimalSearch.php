@@ -5,10 +5,10 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\Models\Animal;
+use app\models\Animal;
 
 /**
- * AnimalSearch represents the model behind the search form about `app\Models\Animal`.
+ * AnimalSearch represents the model behind the search form about `app\models\Animal`.
  */
 class AnimalSearch extends Animal
 {
@@ -19,7 +19,7 @@ class AnimalSearch extends Animal
     {
         return [
             [['idanimal', 'idade', 'Profile_idProfile', 'arquivado'], 'integer'],
-            [['nome', 'dataEntrada', 'caracteristicas', 'sexo', 'porte', 'pelagem', 'breveHistorico', 'created_at', 'updated_at', 'especie'], 'safe'],
+            [['nome', 'data_entrada', 'raca', 'caracteristicas', 'cor', 'sexo', 'porte', 'pelagem', 'brevehistorico', 'created_at', 'updated_at'], 'safe'],
         ];
     }
 
@@ -60,7 +60,7 @@ class AnimalSearch extends Animal
         // grid filtering conditions
         $query->andFilterWhere([
             'idanimal' => $this->idanimal,
-            'dataEntrada' => $this->dataEntrada,
+            'data_entrada' => $this->data_entrada,
             'idade' => $this->idade,
             'Profile_idProfile' => $this->Profile_idProfile,
             'created_at' => $this->created_at,
@@ -69,12 +69,13 @@ class AnimalSearch extends Animal
         ]);
 
         $query->andFilterWhere(['like', 'nome', $this->nome])
+            ->andFilterWhere(['like', 'raca', $this->raca])
             ->andFilterWhere(['like', 'caracteristicas', $this->caracteristicas])
+            ->andFilterWhere(['like', 'cor', $this->cor])
             ->andFilterWhere(['like', 'sexo', $this->sexo])
             ->andFilterWhere(['like', 'porte', $this->porte])
             ->andFilterWhere(['like', 'pelagem', $this->pelagem])
-            ->andFilterWhere(['like', 'breveHistorico', $this->breveHistorico])
-            ->andFilterWhere(['like', 'especie', $this->especie]);
+            ->andFilterWhere(['like', 'brevehistorico', $this->brevehistorico]);
 
         return $dataProvider;
     }
