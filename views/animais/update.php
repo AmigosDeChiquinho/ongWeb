@@ -3,12 +3,14 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Animal */
+/* @var $model app\Models\Animal */
 
-$this->title = 'Update Animal: ' . $model->idanimal;
-$this->params['breadcrumbs'][] = ['label' => 'Animals', 'url' => ['index']];
+$this->title = Yii::t('app', 'Update {modelClass}: ', [
+    'modelClass' => 'Animal',
+]) . $model->idanimal;
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Animals'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->idanimal, 'url' => ['view', 'id' => $model->idanimal]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = Yii::t('app', 'Update');
 ?>
 <div class="animal-update">
 

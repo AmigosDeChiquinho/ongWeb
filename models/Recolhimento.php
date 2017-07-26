@@ -12,9 +12,10 @@ use Yii;
  * @property double $valor
  * @property string $dataSolicitacao
  * @property string $dataRecolhimento
- * @property integer $Profile_User_idUser
+ * @property integer $profile_idProfile
  *
- * @property Itemrecolher[] $itemrecolhers
+ * @property Item[] $items
+ * @property Perfil $profileIdProfile
  */
 class Recolhimento extends \yii\db\ActiveRecord
 {
@@ -32,11 +33,12 @@ class Recolhimento extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['local', 'valor', 'dataSolicitacao', 'dataRecolhimento', 'Profile_User_idUser'], 'required'],
+            [['local', 'valor', 'dataSolicitacao', 'profile_idProfile'], 'required'],
             [['valor'], 'number'],
             [['dataSolicitacao', 'dataRecolhimento'], 'safe'],
-            [['Profile_User_idUser'], 'integer'],
+            [['profile_idProfile'], 'integer'],
             [['local'], 'string', 'max' => 50],
+            [['profile_idProfile'], 'exist', 'skipOnError' => true, 'targetClass' => Perfil::className(), 'targetAttribute' => ['profile_idProfile' => 'idProfile']],
         ];
     }
 
@@ -46,20 +48,28 @@ class Recolhimento extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'idRecolhimento' => 'Id Recolhimento',
-            'local' => 'Local',
-            'valor' => 'Valor',
-            'dataSolicitacao' => 'Data Solicitacao',
-            'dataRecolhimento' => 'Data Recolhimento',
-            'Profile_User_idUser' => 'Profile  User Id User',
+            'idRecolhimento' => Yii::t('app', 'Id Recolhimento'),
+            'local' => Yii::t('app', 'Local'),
+            'valor' => Yii::t('app', 'Valor'),
+            'dataSolicitacao' => Yii::t('app', 'Data Solicitacao'),
+            'dataRecolhimento' => Yii::t('app', 'Data Recolhimento'),
+            'profile_idProfile' => Yii::t('app', 'Profile Id Profile'),
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getItemrecolhers()
+    public function getItems()
     {
-        return $this->hasMany(Itemrecolher::className(), ['Recolhimento_idRecolhimento' => 'idRecolhimento']);
+        return $this->hasMany(Item::className(), ['recolhimento_idRecolhimento' => 'idRecolhimento']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getProfileIdProfile()
+    {
+        return $this->hasOne(Perfil::className(), ['idProfile' => 'profile_idProfile']);
     }
 }

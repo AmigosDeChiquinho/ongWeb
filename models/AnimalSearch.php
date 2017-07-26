@@ -8,7 +8,7 @@ use yii\data\ActiveDataProvider;
 use app\models\Animal;
 
 /**
- * AnimalSearch represents the model behind the search form about `app\models\Animal`.
+ * AnimalSearch represents the model behind the search form about `app\Models\Animal`.
  */
 class AnimalSearch extends Animal
 {
@@ -19,7 +19,7 @@ class AnimalSearch extends Animal
     {
         return [
             [['idanimal', 'idade', 'Profile_idProfile', 'arquivado'], 'integer'],
-            [['nome', 'data_entrada', 'raca', 'caracteristicas', 'cor', 'sexo', 'porte', 'pelagem', 'brevehistorico', 'created_at', 'updated_at'], 'safe'],
+            [['nome', 'dataEntrada', 'caracteristicas', 'sexo', 'porte', 'pelagem', 'breveHistorico', 'created_at', 'updated_at', 'especie'], 'safe'],
         ];
     }
 
@@ -60,7 +60,7 @@ class AnimalSearch extends Animal
         // grid filtering conditions
         $query->andFilterWhere([
             'idanimal' => $this->idanimal,
-            'data_entrada' => $this->data_entrada,
+            'dataEntrada' => $this->dataEntrada,
             'idade' => $this->idade,
             'Profile_idProfile' => $this->Profile_idProfile,
             'created_at' => $this->created_at,
@@ -69,13 +69,12 @@ class AnimalSearch extends Animal
         ]);
 
         $query->andFilterWhere(['like', 'nome', $this->nome])
-            ->andFilterWhere(['like', 'raca', $this->raca])
             ->andFilterWhere(['like', 'caracteristicas', $this->caracteristicas])
-            ->andFilterWhere(['like', 'cor', $this->cor])
             ->andFilterWhere(['like', 'sexo', $this->sexo])
             ->andFilterWhere(['like', 'porte', $this->porte])
             ->andFilterWhere(['like', 'pelagem', $this->pelagem])
-            ->andFilterWhere(['like', 'brevehistorico', $this->brevehistorico]);
+            ->andFilterWhere(['like', 'breveHistorico', $this->breveHistorico])
+            ->andFilterWhere(['like', 'especie', $this->especie]);
 
         return $dataProvider;
     }

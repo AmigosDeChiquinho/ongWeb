@@ -45,34 +45,21 @@ DashboardAsset::register($this);
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="dist/img/perfil.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">Juninho Milles</span>
+              <img src="dist/img/amigos.jpg" class="user-image" alt="User Image">
+              <span class="hidden-xs">ONG</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="dist/img/perfil.jpg" class="img-circle" alt="User Image">
+                <img src="dist/img/amigos.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  Juninho Milles - Web Developer
-                  <small>Member since Nov. 2012</small>
+                  ONG
+                  <small>Amigos de Chiquinho. 2017</small>
                 </p>
               </li>
               <!-- Menu Body -->
-              <li class="user-body">
-                <div class="row">
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Followers</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Sales</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Friends</a>
-                  </div>
-                </div>
-                <!-- /.row -->
-              </li>
+              
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
@@ -97,14 +84,14 @@ DashboardAsset::register($this);
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="dist/img/perfil.jpg" class="img-circle" alt="User Image">
+          <img src="dist/img/amigos.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Juninho Milles</p>
+          <p>ONG</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
-      <!-- search form -->
+      <!-- search form 
       <form action="#" method="get" class="sidebar-form">
         <div class="input-group">
           <input type="text" name="q" class="form-control" placeholder="Search...">
@@ -114,10 +101,10 @@ DashboardAsset::register($this);
               </span>
         </div>
       </form>
-      <!-- /.search form -->
+      /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
-        <li class="header">MAIN NAVIGATION</li>
+        <li class="header">MENU DE NAVEGAÇÃO</li>
 
         <li><a href="<?=Url::toRoute('/site')?>"><i class="fa fa-home"></i> <span>Home</span></a></li>
 
@@ -129,7 +116,7 @@ DashboardAsset::register($this);
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?=Url::toRoute('/animais')?>"><i class="fa fa-circle-o"></i> Listar Animais</a></li>
+            <li><a href="<?=Url::toRoute('/animais/index')?>"><i class="fa fa-circle-o"></i> Listar Animais</a></li>
             
             <li>
                 <a href="<?=Url::toRoute('/animais/create')?>">
@@ -151,10 +138,10 @@ DashboardAsset::register($this);
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?=Url::toRoute('/caixinhas')?>"><i class="fa fa-circle-o"></i> Listar Caixas</a></li>
+            <li><a href="<?=Url::toRoute('/caixas/index')?>"><i class="fa fa-circle-o"></i> Listar Caixas</a></li>
 
         <li>
-          <a href="<?=Url::toRoute('/caixinhas/create')?>">
+          <a href="<?=Url::toRoute('/caixas/create')?>">
             <i class="fa fa-circle-o"></i> <span>Cadastrar</span>
             <span class="pull-right-container">
               <small class="label pull-right bg-green">Novo</small>
@@ -164,9 +151,32 @@ DashboardAsset::register($this);
 
           </ul>
         </li>
-        <li><a href="<?=Url::toRoute('/despesas')?>"><i class="fa fa-line-chart"></i> <span>Despesa</span></a></li>
-        <li><a href="<?=Url::toRoute('/dividas')?>"><i class="fa fa-dollar"></i> <span>Divida</span></a></li>
-        <li><a href="#"><i class="fa fa-book"></i> <span>Documentação</span></a></li>
+
+         <li class="treeview">
+          <a href="#">
+            <i class="fa fa-user"></i> <span>Perfil</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="<?=Url::toRoute('/perfis/index')?>"><i class="fa fa-circle-o"></i> Listar Perfis</a></li>
+
+        <li>
+          <a href="<?=Url::toRoute('/perfis/create')?>">
+            <i class="fa fa-circle-o"></i> <span>Cadastrar</span>
+            <span class="pull-right-container">
+              <small class="label pull-right bg-green">Novo</small>
+            </span>
+          </a>
+        </li>
+
+          </ul>
+        </li>
+
+        <li><a href="<?=Url::toRoute('/doacoes/index')?>"><i class="fa fa-heart"></i> <span>Doações</span></a></li>
+       
+        <!--<li><a href="#"><i class="fa fa-book"></i> <span>Documentação</span></a></li>-->
 
         <!--
         <li class="treeview">
@@ -322,11 +332,11 @@ DashboardAsset::register($this);
         </li>
 
         -->
-        <li class="header">LABELS</li>
-        <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
-        <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
-        <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
-      </ul>
+       <!-- <li class="header">INFORMAÇÕES</li>
+        <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Desenvolvedores</span></a></li>
+        <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>IFRN</span></a></li>
+        <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Sobre</span></a></li>
+      </ul>-->
     </section>
     <!-- /.sidebar -->
   </aside>

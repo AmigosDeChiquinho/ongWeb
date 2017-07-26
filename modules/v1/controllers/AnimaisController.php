@@ -18,7 +18,7 @@ class AnimaisController extends ActiveController
 
     public function prepareDataProvider() 
     {
-    $searchModel = new \app\models\AnimalSearch();    
+    $searchModel = new \app\modules\v1\models\AnimalSearch();    
     return $searchModel->search(\Yii::$app->request->queryParams);
     }
 
