@@ -5,12 +5,12 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Caixinha;
+use app\models\CaixaDoacao;
 
 /**
- * CaixinhaSearch represents the model behind the search form about `app\models\Caixinha`.
+ * CaixaDoacaoSearch represents the model behind the search form about `app\models\CaixaDoacao`.
  */
-class CaixinhaSearch extends Caixinha
+class CaixaDoacaoSearch extends CaixaDoacao
 {
     /**
      * @inheritdoc
@@ -18,8 +18,8 @@ class CaixinhaSearch extends Caixinha
     public function rules()
     {
         return [
-            [['idCaixinha', 'aprovado'], 'integer'],
-            [['nomeEstabelecimento', 'nomeResposavel', 'telefone', 'endereco', 'dataCriacao', 'dataRetirada'], 'safe'],
+            [['idCaixinha', 'aprovado', 'profile_idProfile'], 'integer'],
+            [['nomeEstabelecimento', 'telefone', 'endereco', 'dataInicio', 'dataFim', 'created_at', 'updated_at'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class CaixinhaSearch extends Caixinha
      */
     public function search($params)
     {
-        $query = Caixinha::find();
+        $query = CaixaDoacao::find();
 
         // add conditions that should always apply here
 
@@ -60,13 +60,15 @@ class CaixinhaSearch extends Caixinha
         // grid filtering conditions
         $query->andFilterWhere([
             'idCaixinha' => $this->idCaixinha,
-            'dataCriacao' => $this->dataCriacao,
-            'dataRetirada' => $this->dataRetirada,
+            'dataInicio' => $this->dataInicio,
+            'dataFim' => $this->dataFim,
             'aprovado' => $this->aprovado,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+            'profile_idProfile' => $this->profile_idProfile,
         ]);
 
         $query->andFilterWhere(['like', 'nomeEstabelecimento', $this->nomeEstabelecimento])
-            ->andFilterWhere(['like', 'nomeResposavel', $this->nomeResposavel])
             ->andFilterWhere(['like', 'telefone', $this->telefone])
             ->andFilterWhere(['like', 'endereco', $this->endereco]);
 
