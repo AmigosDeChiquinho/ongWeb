@@ -154,16 +154,16 @@ DashboardAsset::register($this);
 
          <li class="treeview">
           <a href="#">
-            <i class="fa fa-user"></i> <span>Profile</span>
+            <i class="fa fa-user"></i> <span>Perfil</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?=Url::toRoute('/profiles/index')?>"><i class="fa fa-circle-o"></i> Listar Profiles</a></li>
+            <li><a href="<?=Url::toRoute('/perfis/index')?>"><i class="fa fa-circle-o"></i> Listar Perfis</a></li>
 
         <li>
-          <a href="<?=Url::toRoute('/profiles/create')?>">
+          <a href="<?=Url::toRoute('/perfis/create')?>">
             <i class="fa fa-circle-o"></i> <span>Cadastrar</span>
             <span class="pull-right-container">
               <small class="label pull-right bg-green">Novo</small>

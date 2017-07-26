@@ -4,19 +4,19 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\CaixaDoacaoSearch */
+/* @var $searchModel app\models\PerfilSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Caixa Doacaos';
+$this->title = 'Perfils';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="caixa-doacao-index">
+<div class="perfil-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Caixa Doacao', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Perfil', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -24,16 +24,13 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'idCaixinha',
-            'nomeEstabelecimento',
-            'telefone',
-            'endereco',
-            'dataInicio',
-            // 'dataFim',
-            // 'aprovado',
-            // 'created_at',
-            // 'updated_at',
-            // 'profile_idProfile',
+            'idProfile',
+            'email:email',
+            'nome',
+            'cpf',
+            'dataNascimento',
+            // 'celular',
+            // 'telefone',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
