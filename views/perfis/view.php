@@ -35,6 +35,13 @@ $this->params['breadcrumbs'][] = $this->title;
             'dataNascimento',
             'celular',
             'telefone',
+            'endereco.cidade',
+            'endereco.uf',
+            'endereco.bairro',
+            'endereco.logradouro',
+            'endereco.numero',
+            'endereco.complemento',
+            'endereco.cep',
         ],
     ]) ?>
 

@@ -3,17 +3,16 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\Perfil;
-use app\models\PerfilSearch;
 use app\models\Endereco;
+use app\models\EnderecoSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * PerfisController implements the CRUD actions for Perfil model.
+ * EnderecosController implements the CRUD actions for Endereco model.
  */
-class PerfisController extends Controller
+class EnderecosController extends Controller
 {
     /**
      * @inheritdoc
@@ -31,12 +30,12 @@ class PerfisController extends Controller
     }
 
     /**
-     * Lists all Perfil models.
+     * Lists all Endereco models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new PerfilSearch();
+        $searchModel = new EnderecoSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -46,7 +45,7 @@ class PerfisController extends Controller
     }
 
     /**
-     * Displays a single Perfil model.
+     * Displays a single Endereco model.
      * @param integer $id
      * @return mixed
      */
@@ -58,31 +57,25 @@ class PerfisController extends Controller
     }
 
     /**
-     * Creates a new Perfil model.
+     * Creates a new Endereco model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Perfil();
-        $endereco = new Endereco();
+        $model = new Endereco();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save() && $endereco->load(Yii::$app->request->post())) {
-            
-            $endereco->Profile_idProfile = $model->idProfile;
-            $endereco->save();
-
-            return $this->redirect(['view', 'id' => $model->idProfile]);
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->Profile_idProfile]);
         } else {
             return $this->render('create', [
                 'model' => $model,
-                'endereco' => $endereco,
             ]);
         }
     }
 
     /**
-     * Updates an existing Perfil model.
+     * Updates an existing Endereco model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -90,20 +83,18 @@ class PerfisController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $endereco = $this->findModelEndereco($id);
 
-        if ($model->load(Yii::$app->request->post()) && $endereco->load(Yii::$app->request->post()) && $model->save() && $endereco->save()) {
-            return $this->redirect(['view', 'id' => $model->idProfile]);
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->Profile_idProfile]);
         } else {
             return $this->render('update', [
                 'model' => $model,
-                'endereco' => $endereco,
             ]);
         }
     }
 
     /**
-     * Deletes an existing Perfil model.
+     * Deletes an existing Endereco model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -111,30 +102,20 @@ class PerfisController extends Controller
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
-        //$this->findModelEndereco($id)->delete();
 
         return $this->redirect(['index']);
     }
 
     /**
-     * Finds the Perfil model based on its primary key value.
+     * Finds the Endereco model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Perfil the loaded model
+     * @return Endereco the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Perfil::findOne($id)) !== null) {
-            return $model;
-        } else {
-            throw new NotFoundHttpException('The requested page does not exist.');
-        }
-    }
-
-    protected function findModelEndereco($id)
-    {
-        if (($model = Endereco::findOne(['Profile_idProfile'=>$id])) !== null) {
+        if (($model = Endereco::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
