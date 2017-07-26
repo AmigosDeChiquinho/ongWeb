@@ -4,13 +4,13 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Caixinha */
+/* @var $model app\models\CaixaDoacao */
 
-$this->title = Yii::t('app', 'Create {var}',[ 'var'=>Yii::t('app','Caixinha')]);
-$this->params['breadcrumbs'][] = ['label' => 'Caixinhas', 'url' => ['index']];
+$this->title = 'Create Caixa Doacao';
+$this->params['breadcrumbs'][] = ['label' => 'Caixa Doacaos', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="caixinha-create">
+<div class="caixa-doacao-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

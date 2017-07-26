@@ -3,16 +3,16 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\Caixinha;
-use app\models\CaixinhaSearch;
+use app\models\CaixaDoacao;
+use app\models\CaixaDoacaoSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * CaixinhasController implements the CRUD actions for Caixinha model.
+ * CaixasController implements the CRUD actions for CaixaDoacao model.
  */
-class CaixinhasController extends Controller
+class CaixasController extends Controller
 {
     /**
      * @inheritdoc
@@ -30,12 +30,12 @@ class CaixinhasController extends Controller
     }
 
     /**
-     * Lists all Caixinha models.
+     * Lists all CaixaDoacao models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new CaixinhaSearch();
+        $searchModel = new CaixaDoacaoSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,7 +45,7 @@ class CaixinhasController extends Controller
     }
 
     /**
-     * Displays a single Caixinha model.
+     * Displays a single CaixaDoacao model.
      * @param integer $id
      * @return mixed
      */
@@ -57,13 +57,13 @@ class CaixinhasController extends Controller
     }
 
     /**
-     * Creates a new Caixinha model.
+     * Creates a new CaixaDoacao model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Caixinha();
+        $model = new CaixaDoacao();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->idCaixinha]);
@@ -75,7 +75,7 @@ class CaixinhasController extends Controller
     }
 
     /**
-     * Updates an existing Caixinha model.
+     * Updates an existing CaixaDoacao model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -94,7 +94,7 @@ class CaixinhasController extends Controller
     }
 
     /**
-     * Deletes an existing Caixinha model.
+     * Deletes an existing CaixaDoacao model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -107,15 +107,15 @@ class CaixinhasController extends Controller
     }
 
     /**
-     * Finds the Caixinha model based on its primary key value.
+     * Finds the CaixaDoacao model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Caixinha the loaded model
+     * @return CaixaDoacao the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Caixinha::findOne($id)) !== null) {
+        if (($model = CaixaDoacao::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

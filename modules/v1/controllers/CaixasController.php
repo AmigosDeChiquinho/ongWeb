@@ -7,5 +7,5 @@ use yii\rest\ActiveController;
 class CaixasController extends ActiveController
 {
    
-   public $modelClass = 'app\modules\v1\models\Caixinha';
+   public $modelClass = 'app\modules\v1\models\CaixaDoacao';
 }

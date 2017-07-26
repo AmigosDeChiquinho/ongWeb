@@ -138,10 +138,10 @@ DashboardAsset::register($this);
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?=Url::toRoute('/caixinhas/index')?>"><i class="fa fa-circle-o"></i> Listar Caixas</a></li>
+            <li><a href="<?=Url::toRoute('/caixas/index')?>"><i class="fa fa-circle-o"></i> Listar Caixas</a></li>
 
         <li>
-          <a href="<?=Url::toRoute('/caixinhas/create')?>">
+          <a href="<?=Url::toRoute('/caixas/create')?>">
             <i class="fa fa-circle-o"></i> <span>Cadastrar</span>
             <span class="pull-right-container">
               <small class="label pull-right bg-green">Novo</small>
