@@ -20,7 +20,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'caracteristicas')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'sexo')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'sexo')->dropDownList([ 'male' => 'Macho', 'female' => 'Femea', ], ['prompt' => '']) ?>
 
     <?= $form->field($model, 'porte')->dropDownList([ 'Pequeno' => 'Pequeno', 'Médio' => 'Médio', 'Grande' => 'Grande', ], ['prompt' => '']) ?>
 

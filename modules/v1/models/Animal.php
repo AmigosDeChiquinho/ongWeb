@@ -46,10 +46,10 @@ class Animal extends \yii\db\ActiveRecord
             [['nome', 'dataEntrada', 'idade', 'caracteristicas', 'sexo', 'porte', 'pelagem', 'breveHistorico', 'especie'], 'required'],
             [['dataEntrada'], 'safe'],
             [['idade', 'Profile_idProfile', 'arquivado'], 'integer'],
-            [['porte', 'pelagem', 'especie'], 'string'],
+            [['porte', 'pelagem', 'especie', 'sexo'], 'string'],
             [['nome'], 'string', 'max' => 100],
             [['caracteristicas'], 'string', 'max' => 200],
-            [['sexo'], 'string', 'max' => 20],
+            //[['sexo'], 'string', 'max' => 20],
             [['breveHistorico'], 'string', 'max' => 500],
             [['Profile_idProfile'], 'exist', 'skipOnError' => true, 'targetClass' => Perfil::className(), 'targetAttribute' => ['Profile_idProfile' => 'idProfile']],
         ];
