@@ -11,7 +11,7 @@ $this->title = 'Amigos de Chiquinho';
 
         <p class="lead"> “Não há crueldade pior que pensar e acreditar que os animais existem para servir ao Homem.”</p>
         <!--<img src="dist/img/amigos.jpg" class="img-rounded" alt="Cinque Terre">-->
-        <p><a class="btn btn-lg btn-success" href="https://www.vakinha.com.br/vaquinha/ong-amigos-de-chiquinho">Verificar Vaquinha Online</a></p>
+        <p><a class="btn btn-lg btn-success" href="https://www.vakinha.com.br/vaquinha/ong-amigos-de-chiquinho" target="_blank">Verificar Vaquinha Online</a></p>
     </div>
 <!--
     <div class="body-content">
